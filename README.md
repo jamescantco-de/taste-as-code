@@ -1,7 +1,12 @@
-# Open Design Library by James Can't Code (@JamesCantCode)
+<p align="center">
+  <img src="assets/banner.jpg" alt="Taste as Code by James Can't Code" width="100%">
+</p>
+
+# Taste as Code: The Open Design Library by James Can't Code (@JamesCantCode)
 
 > **1,300+ production-grade `DESIGN.md` specs, tactile micro-spacing rules, spring physics presets, and component tokens for AI coding agents (Antigravity, Claude Code, Cursor) and human builders.**  
 > Curated by **James Can't Code** ([jamescantco.de](https://jamescantco.de) | [@JamesCantCode](https://x.com/JamesCantCode)).
+> GitHub: [github.com/jamescantco-de/taste-as-code](https://github.com/jamescantco-de/taste-as-code)
 
 ---
 
