@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="gyr" viewBox="0 0 64 64" width="96" height="96" fill="none" role="img" aria-label="Loading">
+  <style>
+    /* Two knobs: color is the ink, --rate multiplies every duration. */
+    svg { color: #f5f5f7; --rate: 1; }
+
+    .gyr-gimbal {
+      transform-box: view-box;
+      transform-origin: center;
+      transform: rotate(var(--tilt));
+    }
+
+    /* a ring seen edge-on projects to width R|cos t|, so animating rx from R
+       to nothing and back is the spin itself */
+    .gyr-ring {
+      stroke: currentColor;
+      stroke-width: 1.1;
+      fill: none;
+      opacity: .72;
+      animation: gyr-spin calc(var(--dur) * var(--rate, 1)) infinite;
+    }
+
+    .gyr-pip { fill: currentColor; opacity: .85; }
+
+    @keyframes gyr-spin {
+      0%   { rx: 29px; animation-timing-function: ease-in; }
+      50%  { rx: 0px;  animation-timing-function: ease-out; }
+      100% { rx: 29px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .gyr-ring { animation: none; rx: calc(var(--rest) * 1px); }
+    }
+  </style>
+
+  <g class="gyr-gimbal" style="--tilt:0deg">
+    <ellipse class="gyr-ring" cx="32" cy="32" rx="29" ry="29" style="--dur:2.4s;--dir:1;--rest:62"/>
+  </g>
+  <g class="gyr-gimbal" style="--tilt:62deg">
+    <ellipse class="gyr-ring" cx="32" cy="32" rx="29" ry="29" style="--dur:3.3s;--dir:-1;--rest:134"/>
+  </g>
+  <g class="gyr-gimbal" style="--tilt:118deg">
+    <ellipse class="gyr-ring" cx="32" cy="32" rx="29" ry="29" style="--dur:4.1s;--dir:1;--rest:28"/>
+  </g>
+  <circle class="gyr-pip" cx="32" cy="32" r="2"/>
+</svg>

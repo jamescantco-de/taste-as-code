@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="tun" viewBox="0 0 64 64" width="96" height="96" fill="none" role="img" aria-label="Loading">
+  <style>
+    /* Two knobs: color is the ink, --rate multiplies every duration. */
+    svg { color: #f5f5f7; --rate: 1; }
+
+    .tun { --dur: 3s; --n: 6; }
+
+    .tun-hoop {
+      stroke: currentColor;
+      animation: tun-out calc(var(--dur) * var(--rate, 1)) cubic-bezier(.55, 0, .85, .4) infinite;
+      animation-delay: calc(var(--i) * var(--dur) * var(--rate, 1) / var(--n) * -1);
+    }
+
+    .tun-eye { fill: currentColor; opacity: .5; }
+
+    /* radius and weight grow together - a near hoop is larger and heavier */
+    @keyframes tun-out {
+      0%   { r: 1.5px; stroke-width: .5; opacity: 0; }
+      14%  { opacity: .95; }
+      78%  { opacity: .5; }
+      100% { r: 31px;  stroke-width: 2.4; opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .tun-hoop {
+        animation: none;
+        r: var(--rest);
+        stroke-width: 1;
+        opacity: calc(.9 - var(--i) * .11);
+      }
+    }
+  </style>
+
+  <circle class="tun-hoop" cx="32" cy="32" r="2" style="--i:0;--rest:1.5px"/>
+  <circle class="tun-hoop" cx="32" cy="32" r="2" style="--i:1;--rest:6.17px"/>
+  <circle class="tun-hoop" cx="32" cy="32" r="2" style="--i:2;--rest:10.83px"/>
+  <circle class="tun-hoop" cx="32" cy="32" r="2" style="--i:3;--rest:15.5px"/>
+  <circle class="tun-hoop" cx="32" cy="32" r="2" style="--i:4;--rest:20.17px"/>
+  <circle class="tun-hoop" cx="32" cy="32" r="2" style="--i:5;--rest:24.83px"/>
+  <circle class="tun-eye" cx="32" cy="32" r="1.4"/>
+</svg>

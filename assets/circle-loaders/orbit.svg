@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="orb" viewBox="0 0 64 64" width="96" height="96" fill="none" role="img" aria-label="Loading">
+  <style>
+    /* Two knobs: color is the ink, --rate multiplies every duration. */
+    svg { color: #f5f5f7; --rate: 1; }
+
+    /* an ellipse is a circle under scaleY, so the plane is squashed and the
+       arm just rotates */
+    .orb-plane {
+      transform-box: view-box;
+      transform-origin: center;
+      transform: rotate(var(--tilt)) scale(1, var(--k));
+    }
+
+    .orb-track { stroke: currentColor; stroke-width: .9; fill: none; opacity: .2; }
+
+    .orb-arm {
+      transform-box: view-box;
+      transform-origin: center;
+      animation: orb-arm calc(var(--dur) * var(--rate, 1)) linear infinite;
+    }
+
+    /* the bead counter-rotates and un-squashes about its own centre, which
+       cancels the distortion of the shape but keeps the position */
+    .orb-bead {
+      fill: currentColor;
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: orb-bead calc(var(--dur) * var(--rate, 1)) linear infinite;
+    }
+
+    .orb-core { fill: currentColor; opacity: .3; }
+
+    @keyframes orb-arm  { from { transform: rotate(0deg); } to { transform: rotate(calc(var(--dir) * 360deg)); } }
+    @keyframes orb-bead { from { transform: rotate(0deg) scale(1, var(--inv)); } to { transform: rotate(calc(var(--dir) * -360deg)) scale(1, var(--inv)); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .orb-arm  { animation: none; transform: rotate(var(--rest)); }
+      .orb-bead { animation: none; transform: rotate(calc(var(--rest) * -1)) scale(1, var(--inv)); }
+    }
+  </style>
+
+  <g class="orb-plane" style="--tilt:-26deg;--k:0.3;--inv:3.3333;--dur:2.6s;--dir:1;--rest:34deg">
+    <circle class="orb-track" cx="32" cy="32" r="20"/>
+    <g class="orb-arm"><circle class="orb-bead" cx="52" cy="32" r="2.5"/></g>
+  </g>
+  <g class="orb-plane" style="--tilt:34deg;--k:0.38;--inv:2.6316;--dur:3.4s;--dir:-1;--rest:158deg">
+    <circle class="orb-track" cx="32" cy="32" r="16"/>
+    <g class="orb-arm"><circle class="orb-bead" cx="48" cy="32" r="2.5"/></g>
+  </g>
+  <g class="orb-plane" style="--tilt:86deg;--k:0.26;--inv:3.8462;--dur:4.2s;--dir:1;--rest:262deg">
+    <circle class="orb-track" cx="32" cy="32" r="22"/>
+    <g class="orb-arm"><circle class="orb-bead" cx="54" cy="32" r="2.5"/></g>
+  </g>
+  <circle class="orb-core" cx="32" cy="32" r="1.6"/>
+</svg>

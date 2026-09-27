@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="cas" viewBox="0 0 64 64" width="96" height="96" fill="none" role="img" aria-label="Loading">
+  <style>
+    /* Two knobs: color is the ink, --rate multiplies every duration. */
+    svg { color: #f5f5f7; --rate: 1; }
+
+    .cas-slit { stroke: currentColor; stroke-width: 1; opacity: .17; }
+
+    /* the weight sits at the leading edge, so a drop reads as a head pulling
+       a trail rather than a block sliding past */
+    .cas-drop {
+      animation: cas-fall calc(var(--dur) * var(--rate, 1)) linear infinite;
+      animation-delay: calc(var(--delay) * var(--rate, 1));
+    }
+
+    @keyframes cas-fall {
+      0%   { transform: translateY(-35px); opacity: 0; }
+      18%  { opacity: 1; }
+      82%  { opacity: 1; }
+      100% { transform: translateY(64px); opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cas-drop { animation: none; opacity: 1; transform: translateY(calc(var(--rest) * 64px - 16px)); }
+    }
+  </style>
+
+  <defs>
+    <clipPath id="cas-disc"><circle cx="32" cy="32" r="32"/></clipPath>
+    <linearGradient id="cas-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="currentColor" stop-opacity="0"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#cas-disc)">
+    <line class="cas-slit" x1="4.57" y1="0" x2="4.57" y2="64"/>
+    <line class="cas-slit" x1="9.14" y1="0" x2="9.14" y2="64"/>
+    <line class="cas-slit" x1="13.71" y1="0" x2="13.71" y2="64"/>
+    <line class="cas-slit" x1="18.29" y1="0" x2="18.29" y2="64"/>
+    <line class="cas-slit" x1="22.86" y1="0" x2="22.86" y2="64"/>
+    <line class="cas-slit" x1="27.43" y1="0" x2="27.43" y2="64"/>
+    <line class="cas-slit" x1="32.00" y1="0" x2="32.00" y2="64"/>
+    <line class="cas-slit" x1="36.57" y1="0" x2="36.57" y2="64"/>
+    <line class="cas-slit" x1="41.14" y1="0" x2="41.14" y2="64"/>
+    <line class="cas-slit" x1="45.71" y1="0" x2="45.71" y2="64"/>
+    <line class="cas-slit" x1="50.29" y1="0" x2="50.29" y2="64"/>
+    <line class="cas-slit" x1="54.86" y1="0" x2="54.86" y2="64"/>
+    <line class="cas-slit" x1="59.43" y1="0" x2="59.43" y2="64"/>
+    <rect class="cas-drop" x="8.24" y="0" width="1.8" height="25.60" rx="0.9" fill="url(#cas-fade)" style="--dur:2.1s;--delay:-0.4s;--rest:0.16"/>
+    <rect class="cas-drop" x="17.39" y="0" width="1.8" height="17.92" rx="0.9" fill="url(#cas-fade)" style="--dur:1.6s;--delay:-1.2s;--rest:0.54"/>
+    <rect class="cas-drop" x="26.53" y="0" width="1.8" height="29.44" rx="0.9" fill="url(#cas-fade)" style="--dur:2.7s;--delay:-0.1s;--rest:0.3"/>
+    <rect class="cas-drop" x="31.10" y="0" width="1.8" height="21.76" rx="0.9" fill="url(#cas-fade)" style="--dur:1.9s;--delay:-1.5s;--rest:0.72"/>
+    <rect class="cas-drop" x="40.24" y="0" width="1.8" height="32.00" rx="0.9" fill="url(#cas-fade)" style="--dur:2.4s;--delay:-0.8s;--rest:0.44"/>
+    <rect class="cas-drop" x="44.81" y="0" width="1.8" height="16.64" rx="0.9" fill="url(#cas-fade)" style="--dur:3.1s;--delay:-2.2s;--rest:0.62"/>
+    <rect class="cas-drop" x="53.96" y="0" width="1.8" height="24.32" rx="0.9" fill="url(#cas-fade)" style="--dur:1.8s;--delay:-0.6s;--rest:0.22"/>
+  </g>
+</svg>

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="moi" viewBox="0 0 64 64" width="96" height="96" fill="none" role="img" aria-label="Loading">
+  <style>
+    /* Two knobs: color is the ink, --rate multiplies every duration.
+       --blend says what this one is drawn on. */
+    svg { color: #f5f5f7; --blend: screen; --rate: 1; }
+
+    .moi { --dur: 11s; }
+
+    .moi-grate line { stroke: currentColor; stroke-width: .55; }
+    .moi-grate { opacity: .78; }
+
+    /* nothing animates but the rotation - every band you see is interference
+       between the two rulings */
+    .moi-turning {
+      mix-blend-mode: var(--blend, screen);
+      transform-box: view-box;
+      transform-origin: center;
+      animation: moi-turn calc(var(--dur) * var(--rate, 1)) linear infinite;
+    }
+
+    .moi-rim { stroke: currentColor; stroke-width: 1; opacity: .14; }
+
+    @keyframes moi-turn { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .moi-turning { animation: none; transform: rotate(7deg); }
+    }
+  </style>
+
+  <defs><clipPath id="moi-disc"><circle cx="32" cy="32" r="32"/></clipPath></defs>
+  <g clip-path="url(#moi-disc)">
+    <g class="moi-grate">
+      <line class="moi-line" x1="-24" y1="-24.00" x2="88" y2="-24.00"/>
+      <line class="moi-line" x1="-24" y1="-19.60" x2="88" y2="-19.60"/>
+      <line class="moi-line" x1="-24" y1="-15.20" x2="88" y2="-15.20"/>
+      <line class="moi-line" x1="-24" y1="-10.80" x2="88" y2="-10.80"/>
+      <line class="moi-line" x1="-24" y1="-6.40" x2="88" y2="-6.40"/>
+      <line class="moi-line" x1="-24" y1="-2.00" x2="88" y2="-2.00"/>
+      <line class="moi-line" x1="-24" y1="2.40" x2="88" y2="2.40"/>
+      <line class="moi-line" x1="-24" y1="6.80" x2="88" y2="6.80"/>
+      <line class="moi-line" x1="-24" y1="11.20" x2="88" y2="11.20"/>
+      <line class="moi-line" x1="-24" y1="15.60" x2="88" y2="15.60"/>
+      <line class="moi-line" x1="-24" y1="20.00" x2="88" y2="20.00"/>
+      <line class="moi-line" x1="-24" y1="24.40" x2="88" y2="24.40"/>
+      <line class="moi-line" x1="-24" y1="28.80" x2="88" y2="28.80"/>
+      <line class="moi-line" x1="-24" y1="33.20" x2="88" y2="33.20"/>
+      <line class="moi-line" x1="-24" y1="37.60" x2="88" y2="37.60"/>
+      <line class="moi-line" x1="-24" y1="42.00" x2="88" y2="42.00"/>
+      <line class="moi-line" x1="-24" y1="46.40" x2="88" y2="46.40"/>
+      <line class="moi-line" x1="-24" y1="50.80" x2="88" y2="50.80"/>
+      <line class="moi-line" x1="-24" y1="55.20" x2="88" y2="55.20"/>
+      <line class="moi-line" x1="-24" y1="59.60" x2="88" y2="59.60"/>
+      <line class="moi-line" x1="-24" y1="64.00" x2="88" y2="64.00"/>
+      <line class="moi-line" x1="-24" y1="68.40" x2="88" y2="68.40"/>
+      <line class="moi-line" x1="-24" y1="72.80" x2="88" y2="72.80"/>
+      <line class="moi-line" x1="-24" y1="77.20" x2="88" y2="77.20"/>
+      <line class="moi-line" x1="-24" y1="81.60" x2="88" y2="81.60"/>
+      <line class="moi-line" x1="-24" y1="86.00" x2="88" y2="86.00"/>
+    </g>
+    <g class="moi-grate moi-turning">
+      <line class="moi-line" x1="-24" y1="-24.00" x2="88" y2="-24.00"/>
+      <line class="moi-line" x1="-24" y1="-19.60" x2="88" y2="-19.60"/>
+      <line class="moi-line" x1="-24" y1="-15.20" x2="88" y2="-15.20"/>
+      <line class="moi-line" x1="-24" y1="-10.80" x2="88" y2="-10.80"/>
+      <line class="moi-line" x1="-24" y1="-6.40" x2="88" y2="-6.40"/>
+      <line class="moi-line" x1="-24" y1="-2.00" x2="88" y2="-2.00"/>
+      <line class="moi-line" x1="-24" y1="2.40" x2="88" y2="2.40"/>
+      <line class="moi-line" x1="-24" y1="6.80" x2="88" y2="6.80"/>
+      <line class="moi-line" x1="-24" y1="11.20" x2="88" y2="11.20"/>
+      <line class="moi-line" x1="-24" y1="15.60" x2="88" y2="15.60"/>
+      <line class="moi-line" x1="-24" y1="20.00" x2="88" y2="20.00"/>
+      <line class="moi-line" x1="-24" y1="24.40" x2="88" y2="24.40"/>
+      <line class="moi-line" x1="-24" y1="28.80" x2="88" y2="28.80"/>
+      <line class="moi-line" x1="-24" y1="33.20" x2="88" y2="33.20"/>
+      <line class="moi-line" x1="-24" y1="37.60" x2="88" y2="37.60"/>
+      <line class="moi-line" x1="-24" y1="42.00" x2="88" y2="42.00"/>
+      <line class="moi-line" x1="-24" y1="46.40" x2="88" y2="46.40"/>
+      <line class="moi-line" x1="-24" y1="50.80" x2="88" y2="50.80"/>
+      <line class="moi-line" x1="-24" y1="55.20" x2="88" y2="55.20"/>
+      <line class="moi-line" x1="-24" y1="59.60" x2="88" y2="59.60"/>
+      <line class="moi-line" x1="-24" y1="64.00" x2="88" y2="64.00"/>
+      <line class="moi-line" x1="-24" y1="68.40" x2="88" y2="68.40"/>
+      <line class="moi-line" x1="-24" y1="72.80" x2="88" y2="72.80"/>
+      <line class="moi-line" x1="-24" y1="77.20" x2="88" y2="77.20"/>
+      <line class="moi-line" x1="-24" y1="81.60" x2="88" y2="81.60"/>
+      <line class="moi-line" x1="-24" y1="86.00" x2="88" y2="86.00"/>
+    </g>
+  </g>
+  <circle class="moi-rim" cx="32" cy="32" r="31.5"/>
+</svg>

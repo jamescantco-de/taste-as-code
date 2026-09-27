@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="tide" viewBox="0 0 64 64" width="96" height="96" fill="none" role="img" aria-label="Loading">
+  <style>
+    /* Two knobs: color is the ink, --rate multiplies every duration. */
+    svg { color: #f5f5f7; --rate: 1; }
+
+    .tide { --dur: 2.6s; }
+
+    /* the level breathes; the waves run across it */
+    .tide-swell { animation: tide-level calc(var(--dur) * var(--rate, 1) * 2.6) ease-in-out infinite; }
+
+    .tide-back  { animation: tide-run calc(var(--dur) * var(--rate, 1) * 1.7) linear infinite; }
+    .tide-front { animation: tide-run calc(var(--dur) * var(--rate, 1)) linear infinite reverse; }
+
+    .tide-body { fill: currentColor; }
+    .tide-back  .tide-body { opacity: .07; }
+    .tide-front .tide-body { opacity: .13; }
+
+    .tide-skin { fill: none; stroke: currentColor; stroke-width: 1.1; }
+    .tide-back  .tide-skin { opacity: .35; }
+    .tide-front .tide-skin { opacity: 1; }
+
+    .tide-rim { stroke: currentColor; stroke-width: 1; opacity: .14; }
+
+    /* two identical periods span 128, so sliding 64 is a seamless loop */
+    @keyframes tide-run   { from { transform: translateX(0); }      to { transform: translateX(-64px); } }
+    @keyframes tide-level { 0%, 100% { transform: translateY(3px); } 50% { transform: translateY(-4px); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .tide-swell { animation: none; }
+      .tide-front { animation: none; transform: translateX(-12px); }
+      .tide-back  { animation: none; transform: translateX(-22px); }
+    }
+  </style>
+
+  <defs>
+    <clipPath id="tide-bowl"><circle cx="32" cy="32" r="30"/></clipPath>
+  </defs>
+  <g clip-path="url(#tide-bowl)">
+    <g class="tide-swell">
+      <g class="tide-lane tide-back">
+        <path class="tide-body" d="M0.0,26.50L2.0,27.12L4.0,27.72L6.0,28.28L8.0,28.76L10.0,29.16L12.0,29.46L14.0,29.64L16.0,29.70L18.0,29.64L20.0,29.46L22.0,29.16L24.0,28.76L26.0,28.28L28.0,27.72L30.0,27.12L32.0,26.50L34.0,25.88L36.0,25.28L38.0,24.72L40.0,24.24L42.0,23.84L44.0,23.54L46.0,23.36L48.0,23.30L50.0,23.36L52.0,23.54L54.0,23.84L56.0,24.24L58.0,24.72L60.0,25.28L62.0,25.88L64.0,26.50L66.0,27.12L68.0,27.72L70.0,28.28L72.0,28.76L74.0,29.16L76.0,29.46L78.0,29.64L80.0,29.70L82.0,29.64L84.0,29.46L86.0,29.16L88.0,28.76L90.0,28.28L92.0,27.72L94.0,27.12L96.0,26.50L98.0,25.88L100.0,25.28L102.0,24.72L104.0,24.24L106.0,23.84L108.0,23.54L110.0,23.36L112.0,23.30L114.0,23.36L116.0,23.54L118.0,23.84L120.0,24.24L122.0,24.72L124.0,25.28L126.0,25.88L128.0,26.50L128,64L0,64Z"/>
+        <path class="tide-skin" d="M0.0,26.50L2.0,27.12L4.0,27.72L6.0,28.28L8.0,28.76L10.0,29.16L12.0,29.46L14.0,29.64L16.0,29.70L18.0,29.64L20.0,29.46L22.0,29.16L24.0,28.76L26.0,28.28L28.0,27.72L30.0,27.12L32.0,26.50L34.0,25.88L36.0,25.28L38.0,24.72L40.0,24.24L42.0,23.84L44.0,23.54L46.0,23.36L48.0,23.30L50.0,23.36L52.0,23.54L54.0,23.84L56.0,24.24L58.0,24.72L60.0,25.28L62.0,25.88L64.0,26.50L66.0,27.12L68.0,27.72L70.0,28.28L72.0,28.76L74.0,29.16L76.0,29.46L78.0,29.64L80.0,29.70L82.0,29.64L84.0,29.46L86.0,29.16L88.0,28.76L90.0,28.28L92.0,27.72L94.0,27.12L96.0,26.50L98.0,25.88L100.0,25.28L102.0,24.72L104.0,24.24L106.0,23.84L108.0,23.54L110.0,23.36L112.0,23.30L114.0,23.36L116.0,23.54L118.0,23.84L120.0,24.24L122.0,24.72L124.0,25.28L126.0,25.88L128.0,26.50"/>
+      </g>
+      <g class="tide-lane tide-front">
+        <path class="tide-body" d="M0.0,22.00L2.0,22.90L4.0,23.76L6.0,24.56L8.0,25.25L10.0,25.82L12.0,26.25L14.0,26.51L16.0,26.60L18.0,26.51L20.0,26.25L22.0,25.82L24.0,25.25L26.0,24.56L28.0,23.76L30.0,22.90L32.0,22.00L34.0,21.10L36.0,20.24L38.0,19.44L40.0,18.75L42.0,18.18L44.0,17.75L46.0,17.49L48.0,17.40L50.0,17.49L52.0,17.75L54.0,18.18L56.0,18.75L58.0,19.44L60.0,20.24L62.0,21.10L64.0,22.00L66.0,22.90L68.0,23.76L70.0,24.56L72.0,25.25L74.0,25.82L76.0,26.25L78.0,26.51L80.0,26.60L82.0,26.51L84.0,26.25L86.0,25.82L88.0,25.25L90.0,24.56L92.0,23.76L94.0,22.90L96.0,22.00L98.0,21.10L100.0,20.24L102.0,19.44L104.0,18.75L106.0,18.18L108.0,17.75L110.0,17.49L112.0,17.40L114.0,17.49L116.0,17.75L118.0,18.18L120.0,18.75L122.0,19.44L124.0,20.24L126.0,21.10L128.0,22.00L128,64L0,64Z"/>
+        <path class="tide-skin" d="M0.0,22.00L2.0,22.90L4.0,23.76L6.0,24.56L8.0,25.25L10.0,25.82L12.0,26.25L14.0,26.51L16.0,26.60L18.0,26.51L20.0,26.25L22.0,25.82L24.0,25.25L26.0,24.56L28.0,23.76L30.0,22.90L32.0,22.00L34.0,21.10L36.0,20.24L38.0,19.44L40.0,18.75L42.0,18.18L44.0,17.75L46.0,17.49L48.0,17.40L50.0,17.49L52.0,17.75L54.0,18.18L56.0,18.75L58.0,19.44L60.0,20.24L62.0,21.10L64.0,22.00L66.0,22.90L68.0,23.76L70.0,24.56L72.0,25.25L74.0,25.82L76.0,26.25L78.0,26.51L80.0,26.60L82.0,26.51L84.0,26.25L86.0,25.82L88.0,25.25L90.0,24.56L92.0,23.76L94.0,22.90L96.0,22.00L98.0,21.10L100.0,20.24L102.0,19.44L104.0,18.75L106.0,18.18L108.0,17.75L110.0,17.49L112.0,17.40L114.0,17.49L116.0,17.75L118.0,18.18L120.0,18.75L122.0,19.44L124.0,20.24L126.0,21.10L128.0,22.00"/>
+      </g>
+    </g>
+  </g>
+  <circle class="tide-rim" cx="32" cy="32" r="30"/>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="lat" viewBox="0 0 64 64" width="96" height="96" fill="none" role="img" aria-label="Loading">
+  <style>
+    /* Two knobs: color is the ink, --rate multiplies every duration.
+       --paper, --lit and --shade say what this one is drawn on. */
+    svg { color: #f5f5f7; --paper: #0a0a0c; --lit: .26; --shade: .62; --rate: 1; }
+
+    .lat { --dur: 2.4s; --n: 7; }
+    .lat-ground { fill: var(--paper, #0a0a0c); }
+    .lat-rim    { stroke: currentColor; stroke-width: 1; opacity: .08; }
+
+    /* the sphere is lit from the top left and falls away bottom right; how
+       hard depends on the paper it is drawn on */
+    .lat-lit   { stop-opacity: var(--lit, .26); }
+    .lat-shade { stop-opacity: var(--shade, .62); }
+
+    .lat-shell {
+      animation: lat-breathe calc(var(--dur) * var(--rate, 1)) ease-in-out infinite;
+    }
+
+    .lat-band {
+      fill: currentColor;
+      opacity: .14;
+      animation: lat-wave calc(var(--dur) * var(--rate, 1)) ease-in-out infinite;
+      /* one period spread across the stack = a wave climbing it */
+      animation-delay: calc(var(--i) * var(--dur) * var(--rate, 1) / var(--n) * -1);
+    }
+
+    @keyframes lat-wave {
+      0%, 100% { opacity: .14; }
+      38%      { opacity: 1; }
+      64%      { opacity: .34; }
+    }
+
+    @keyframes lat-breathe {
+      0%, 100% { opacity: .82; }
+      45%      { opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .lat-shell { animation: none; opacity: 1; }
+      .lat-band  { animation: none; opacity: calc(.22 + var(--i) * .11); }
+    }
+  </style>
+
+  <circle class="lat-ground" cx="32" cy="32" r="30"/>
+  <g class="lat-shell">
+    <path class="lat-band" d="M26.97,2.42L37.03,2.42A30,30 0 0,1 44.09,4.55L19.91,4.55A30,30 0 0,1 26.97,2.42Z" style="--i:0"/>
+    <path class="lat-band" d="M18.14,5.4L45.86,5.4A30,30 0 0,1 55.11,12.87L8.89,12.87A30,30 0 0,1 18.14,5.4Z" style="--i:1"/>
+    <path class="lat-band" d="M8.21,13.72L55.79,13.72A30,30 0 0,1 61.15,24.9L2.85,24.9A30,30 0 0,1 8.21,13.72Z" style="--i:2"/>
+    <path class="lat-band" d="M2.66,25.75L61.34,25.75A30,30 0 0,1 61.34,38.25L2.66,38.25A30,30 0 0,1 2.66,25.75Z" style="--i:3"/>
+    <path class="lat-band" d="M2.85,39.1L61.15,39.1A30,30 0 0,1 55.79,50.28L8.21,50.28A30,30 0 0,1 2.85,39.1Z" style="--i:4"/>
+    <path class="lat-band" d="M8.89,51.13L55.11,51.13A30,30 0 0,1 45.86,58.6L18.14,58.6A30,30 0 0,1 8.89,51.13Z" style="--i:5"/>
+    <path class="lat-band" d="M19.91,59.45L44.09,59.45A30,30 0 0,1 37.03,61.58L26.97,61.58A30,30 0 0,1 19.91,59.45Z" style="--i:6"/>
+  </g>
+  <defs>
+    <radialGradient id="lat-hi" cx="30%" cy="18%" r="70%">
+      <stop class="lat-lit" offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lat-lo" cx="74%" cy="92%" r="78%">
+      <stop class="lat-shade" offset="0%" stop-color="#000"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle class="lat-lo" cx="32" cy="32" r="30" fill="url(#lat-lo)"/>
+  <circle class="lat-hi" cx="32" cy="32" r="30" fill="url(#lat-hi)"/>
+  <circle class="lat-rim" cx="32" cy="32" r="30"/>
+</svg>

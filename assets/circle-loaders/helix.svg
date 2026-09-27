@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="hel" viewBox="0 0 64 64" width="96" height="96" fill="none" role="img" aria-label="Loading">
+  <style>
+    /* Two knobs: color is the ink, --rate multiplies every duration. */
+    svg { color: #f5f5f7; --rate: 1; }
+
+    .hel { --dur: 3.4s; }
+
+    /* the path holds two identical periods, so sliding exactly one period
+       loops with no seam */
+    .hel-run { animation: hel-run calc(var(--dur) * var(--rate, 1)) linear infinite; }
+
+    .hel-strand { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; }
+    .hel-front  { opacity: 1; }
+    .hel-back   { opacity: .42; stroke-width: 1.1; }
+
+    /* each rung is drawn at the strands' true separation, so the ladder
+       narrows to nothing at every crossing and opens again */
+    .hel-rung { stroke: currentColor; stroke-width: .9; opacity: .26; }
+
+    .hel-rim { stroke: currentColor; stroke-width: 1; opacity: .14; }
+
+    @keyframes hel-run { from { transform: translateX(0); } to { transform: translateX(-64px); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hel-run { animation: none; transform: translateX(-16px); }
+    }
+  </style>
+
+  <defs>
+    <clipPath id="hel-tube"><circle cx="32" cy="32" r="30"/></clipPath>
+  </defs>
+  <g clip-path="url(#hel-tube)">
+    <g class="hel-run">
+    <line class="hel-rung" x1="2.0" y1="28.68" x2="2.0" y2="35.32"/>
+    <line class="hel-rung" x1="4.0" y1="25.49" x2="4.0" y2="38.51"/>
+    <line class="hel-rung" x1="6.0" y1="22.56" x2="6.0" y2="41.44"/>
+    <line class="hel-rung" x1="8.0" y1="19.98" x2="8.0" y2="44.02"/>
+    <line class="hel-rung" x1="10.0" y1="17.87" x2="10.0" y2="46.13"/>
+    <line class="hel-rung" x1="12.0" y1="16.29" x2="12.0" y2="47.71"/>
+    <line class="hel-rung" x1="14.0" y1="15.33" x2="14.0" y2="48.67"/>
+    <line class="hel-rung" x1="16.0" y1="15.00" x2="16.0" y2="49.00"/>
+    <line class="hel-rung" x1="18.0" y1="15.33" x2="18.0" y2="48.67"/>
+    <line class="hel-rung" x1="20.0" y1="16.29" x2="20.0" y2="47.71"/>
+    <line class="hel-rung" x1="22.0" y1="17.87" x2="22.0" y2="46.13"/>
+    <line class="hel-rung" x1="24.0" y1="19.98" x2="24.0" y2="44.02"/>
+    <line class="hel-rung" x1="26.0" y1="22.56" x2="26.0" y2="41.44"/>
+    <line class="hel-rung" x1="28.0" y1="25.49" x2="28.0" y2="38.51"/>
+    <line class="hel-rung" x1="30.0" y1="28.68" x2="30.0" y2="35.32"/>
+    <line class="hel-rung" x1="34.0" y1="28.68" x2="34.0" y2="35.32"/>
+    <line class="hel-rung" x1="36.0" y1="25.49" x2="36.0" y2="38.51"/>
+    <line class="hel-rung" x1="38.0" y1="22.56" x2="38.0" y2="41.44"/>
+    <line class="hel-rung" x1="40.0" y1="19.98" x2="40.0" y2="44.02"/>
+    <line class="hel-rung" x1="42.0" y1="17.87" x2="42.0" y2="46.13"/>
+    <line class="hel-rung" x1="44.0" y1="16.29" x2="44.0" y2="47.71"/>
+    <line class="hel-rung" x1="46.0" y1="15.33" x2="46.0" y2="48.67"/>
+    <line class="hel-rung" x1="48.0" y1="15.00" x2="48.0" y2="49.00"/>
+    <line class="hel-rung" x1="50.0" y1="15.33" x2="50.0" y2="48.67"/>
+    <line class="hel-rung" x1="52.0" y1="16.29" x2="52.0" y2="47.71"/>
+    <line class="hel-rung" x1="54.0" y1="17.87" x2="54.0" y2="46.13"/>
+    <line class="hel-rung" x1="56.0" y1="19.98" x2="56.0" y2="44.02"/>
+    <line class="hel-rung" x1="58.0" y1="22.56" x2="58.0" y2="41.44"/>
+    <line class="hel-rung" x1="60.0" y1="25.49" x2="60.0" y2="38.51"/>
+    <line class="hel-rung" x1="62.0" y1="28.68" x2="62.0" y2="35.32"/>
+    <line class="hel-rung" x1="66.0" y1="28.68" x2="66.0" y2="35.32"/>
+    <line class="hel-rung" x1="68.0" y1="25.49" x2="68.0" y2="38.51"/>
+    <line class="hel-rung" x1="70.0" y1="22.56" x2="70.0" y2="41.44"/>
+    <line class="hel-rung" x1="72.0" y1="19.98" x2="72.0" y2="44.02"/>
+    <line class="hel-rung" x1="74.0" y1="17.87" x2="74.0" y2="46.13"/>
+    <line class="hel-rung" x1="76.0" y1="16.29" x2="76.0" y2="47.71"/>
+    <line class="hel-rung" x1="78.0" y1="15.33" x2="78.0" y2="48.67"/>
+    <line class="hel-rung" x1="80.0" y1="15.00" x2="80.0" y2="49.00"/>
+    <line class="hel-rung" x1="82.0" y1="15.33" x2="82.0" y2="48.67"/>
+    <line class="hel-rung" x1="84.0" y1="16.29" x2="84.0" y2="47.71"/>
+    <line class="hel-rung" x1="86.0" y1="17.87" x2="86.0" y2="46.13"/>
+    <line class="hel-rung" x1="88.0" y1="19.98" x2="88.0" y2="44.02"/>
+    <line class="hel-rung" x1="90.0" y1="22.56" x2="90.0" y2="41.44"/>
+    <line class="hel-rung" x1="92.0" y1="25.49" x2="92.0" y2="38.51"/>
+    <line class="hel-rung" x1="94.0" y1="28.68" x2="94.0" y2="35.32"/>
+    <line class="hel-rung" x1="98.0" y1="28.68" x2="98.0" y2="35.32"/>
+    <line class="hel-rung" x1="100.0" y1="25.49" x2="100.0" y2="38.51"/>
+    <line class="hel-rung" x1="102.0" y1="22.56" x2="102.0" y2="41.44"/>
+    <line class="hel-rung" x1="104.0" y1="19.98" x2="104.0" y2="44.02"/>
+    <line class="hel-rung" x1="106.0" y1="17.87" x2="106.0" y2="46.13"/>
+    <line class="hel-rung" x1="108.0" y1="16.29" x2="108.0" y2="47.71"/>
+    <line class="hel-rung" x1="110.0" y1="15.33" x2="110.0" y2="48.67"/>
+    <line class="hel-rung" x1="112.0" y1="15.00" x2="112.0" y2="49.00"/>
+    <line class="hel-rung" x1="114.0" y1="15.33" x2="114.0" y2="48.67"/>
+    <line class="hel-rung" x1="116.0" y1="16.29" x2="116.0" y2="47.71"/>
+    <line class="hel-rung" x1="118.0" y1="17.87" x2="118.0" y2="46.13"/>
+    <line class="hel-rung" x1="120.0" y1="19.98" x2="120.0" y2="44.02"/>
+    <line class="hel-rung" x1="122.0" y1="22.56" x2="122.0" y2="41.44"/>
+    <line class="hel-rung" x1="124.0" y1="25.49" x2="124.0" y2="38.51"/>
+    <line class="hel-rung" x1="126.0" y1="28.68" x2="126.0" y2="35.32"/>
+      <path class="hel-strand hel-back"  d="M0.0,32.00L2.0,28.68L4.0,25.49L6.0,22.56L8.0,19.98L10.0,17.87L12.0,16.29L14.0,15.33L16.0,15.00L18.0,15.33L20.0,16.29L22.0,17.87L24.0,19.98L26.0,22.56L28.0,25.49L30.0,28.68L32.0,32.00L34.0,35.32L36.0,38.51L38.0,41.44L40.0,44.02L42.0,46.13L44.0,47.71L46.0,48.67L48.0,49.00L50.0,48.67L52.0,47.71L54.0,46.13L56.0,44.02L58.0,41.44L60.0,38.51L62.0,35.32L64.0,32.00L66.0,28.68L68.0,25.49L70.0,22.56L72.0,19.98L74.0,17.87L76.0,16.29L78.0,15.33L80.0,15.00L82.0,15.33L84.0,16.29L86.0,17.87L88.0,19.98L90.0,22.56L92.0,25.49L94.0,28.68L96.0,32.00L98.0,35.32L100.0,38.51L102.0,41.44L104.0,44.02L106.0,46.13L108.0,47.71L110.0,48.67L112.0,49.00L114.0,48.67L116.0,47.71L118.0,46.13L120.0,44.02L122.0,41.44L124.0,38.51L126.0,35.32L128.0,32.00"/>
+      <path class="hel-strand hel-front" d="M0.0,32.00L2.0,35.32L4.0,38.51L6.0,41.44L8.0,44.02L10.0,46.13L12.0,47.71L14.0,48.67L16.0,49.00L18.0,48.67L20.0,47.71L22.0,46.13L24.0,44.02L26.0,41.44L28.0,38.51L30.0,35.32L32.0,32.00L34.0,28.68L36.0,25.49L38.0,22.56L40.0,19.98L42.0,17.87L44.0,16.29L46.0,15.33L48.0,15.00L50.0,15.33L52.0,16.29L54.0,17.87L56.0,19.98L58.0,22.56L60.0,25.49L62.0,28.68L64.0,32.00L66.0,35.32L68.0,38.51L70.0,41.44L72.0,44.02L74.0,46.13L76.0,47.71L78.0,48.67L80.0,49.00L82.0,48.67L84.0,47.71L86.0,46.13L88.0,44.02L90.0,41.44L92.0,38.51L94.0,35.32L96.0,32.00L98.0,28.68L100.0,25.49L102.0,22.56L104.0,19.98L106.0,17.87L108.0,16.29L110.0,15.33L112.0,15.00L114.0,15.33L116.0,16.29L118.0,17.87L120.0,19.98L122.0,22.56L124.0,25.49L126.0,28.68L128.0,32.00"/>
+    </g>
+  </g>
+  <circle class="hel-rim" cx="32" cy="32" r="30"/>
+</svg>

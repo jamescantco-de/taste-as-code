@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="cdd" viewBox="0 0 64 64" width="96" height="96" fill="none" role="img" aria-label="Loading">
+  <style>
+    /* Two knobs: color is the ink, --rate multiplies every duration. */
+    svg { color: #f5f5f7; --rate: 1; }
+
+    .cdd { --dur: 2.6s; --n: 44; }
+
+    .cdd-hoop { stroke: currentColor; stroke-width: 1; opacity: .18; }
+
+    .cdd-web {
+      transform-box: view-box;
+      transform-origin: center;
+      animation: cdd-turn calc(var(--dur) * var(--rate, 1) * 6) linear infinite;
+    }
+
+    /* chord i joins point i to point 2i; the cardioid is the envelope those
+       straight lines leave behind - nothing ever draws the curve */
+    .cdd-chord {
+      stroke: currentColor;
+      stroke-width: .65;
+      opacity: .2;
+      animation: cdd-light calc(var(--dur) * var(--rate, 1)) ease-in-out infinite;
+      animation-delay: calc(var(--i) * var(--dur) * var(--rate, 1) / var(--n) * -1);
+    }
+
+    @keyframes cdd-light { 0%, 100% { opacity: .16; } 50% { opacity: .95; } }
+    @keyframes cdd-turn  { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cdd-chord { animation: none; opacity: .42; }
+      .cdd-web   { animation: none; }
+    }
+  </style>
+
+  <circle class="cdd-hoop" cx="32" cy="32" r="29"/>
+  <g class="cdd-web">
+    <line class="cdd-chord" x1="32.00" y1="3.00" x2="32.00" y2="3.00" style="--i:0"/>
+    <line class="cdd-chord" x1="36.13" y1="3.30" x2="40.17" y2="4.17" style="--i:1"/>
+    <line class="cdd-chord" x1="40.17" y1="4.17" x2="47.68" y2="7.60" style="--i:2"/>
+    <line class="cdd-chord" x1="44.05" y1="5.62" x2="53.92" y2="13.01" style="--i:3"/>
+    <line class="cdd-chord" x1="47.68" y1="7.60" x2="58.38" y2="19.95" style="--i:4"/>
+    <line class="cdd-chord" x1="50.99" y1="10.08" x2="60.70" y2="27.87" style="--i:5"/>
+    <line class="cdd-chord" x1="53.92" y1="13.01" x2="60.70" y2="36.13" style="--i:6"/>
+    <line class="cdd-chord" x1="56.40" y1="16.32" x2="58.38" y2="44.05" style="--i:7"/>
+    <line class="cdd-chord" x1="58.38" y1="19.95" x2="53.92" y2="50.99" style="--i:8"/>
+    <line class="cdd-chord" x1="59.83" y1="23.83" x2="47.68" y2="56.40" style="--i:9"/>
+    <line class="cdd-chord" x1="60.70" y1="27.87" x2="40.17" y2="59.83" style="--i:10"/>
+    <line class="cdd-chord" x1="61.00" y1="32.00" x2="32.00" y2="61.00" style="--i:11"/>
+    <line class="cdd-chord" x1="60.70" y1="36.13" x2="23.83" y2="59.83" style="--i:12"/>
+    <line class="cdd-chord" x1="59.83" y1="40.17" x2="16.32" y2="56.40" style="--i:13"/>
+    <line class="cdd-chord" x1="58.38" y1="44.05" x2="10.08" y2="50.99" style="--i:14"/>
+    <line class="cdd-chord" x1="56.40" y1="47.68" x2="5.62" y2="44.05" style="--i:15"/>
+    <line class="cdd-chord" x1="53.92" y1="50.99" x2="3.30" y2="36.13" style="--i:16"/>
+    <line class="cdd-chord" x1="50.99" y1="53.92" x2="3.30" y2="27.87" style="--i:17"/>
+    <line class="cdd-chord" x1="47.68" y1="56.40" x2="5.62" y2="19.95" style="--i:18"/>
+    <line class="cdd-chord" x1="44.05" y1="58.38" x2="10.08" y2="13.01" style="--i:19"/>
+    <line class="cdd-chord" x1="40.17" y1="59.83" x2="16.32" y2="7.60" style="--i:20"/>
+    <line class="cdd-chord" x1="36.13" y1="60.70" x2="23.83" y2="4.17" style="--i:21"/>
+    <line class="cdd-chord" x1="32.00" y1="61.00" x2="32.00" y2="3.00" style="--i:22"/>
+    <line class="cdd-chord" x1="27.87" y1="60.70" x2="40.17" y2="4.17" style="--i:23"/>
+    <line class="cdd-chord" x1="23.83" y1="59.83" x2="47.68" y2="7.60" style="--i:24"/>
+    <line class="cdd-chord" x1="19.95" y1="58.38" x2="53.92" y2="13.01" style="--i:25"/>
+    <line class="cdd-chord" x1="16.32" y1="56.40" x2="58.38" y2="19.95" style="--i:26"/>
+    <line class="cdd-chord" x1="13.01" y1="53.92" x2="60.70" y2="27.87" style="--i:27"/>
+    <line class="cdd-chord" x1="10.08" y1="50.99" x2="60.70" y2="36.13" style="--i:28"/>
+    <line class="cdd-chord" x1="7.60" y1="47.68" x2="58.38" y2="44.05" style="--i:29"/>
+    <line class="cdd-chord" x1="5.62" y1="44.05" x2="53.92" y2="50.99" style="--i:30"/>
+    <line class="cdd-chord" x1="4.17" y1="40.17" x2="47.68" y2="56.40" style="--i:31"/>
+    <line class="cdd-chord" x1="3.30" y1="36.13" x2="40.17" y2="59.83" style="--i:32"/>
+    <line class="cdd-chord" x1="3.00" y1="32.00" x2="32.00" y2="61.00" style="--i:33"/>
+    <line class="cdd-chord" x1="3.30" y1="27.87" x2="23.83" y2="59.83" style="--i:34"/>
+    <line class="cdd-chord" x1="4.17" y1="23.83" x2="16.32" y2="56.40" style="--i:35"/>
+    <line class="cdd-chord" x1="5.62" y1="19.95" x2="10.08" y2="50.99" style="--i:36"/>
+    <line class="cdd-chord" x1="7.60" y1="16.32" x2="5.62" y2="44.05" style="--i:37"/>
+    <line class="cdd-chord" x1="10.08" y1="13.01" x2="3.30" y2="36.13" style="--i:38"/>
+    <line class="cdd-chord" x1="13.01" y1="10.08" x2="3.30" y2="27.87" style="--i:39"/>
+    <line class="cdd-chord" x1="16.32" y1="7.60" x2="5.62" y2="19.95" style="--i:40"/>
+    <line class="cdd-chord" x1="19.95" y1="5.62" x2="10.08" y2="13.01" style="--i:41"/>
+    <line class="cdd-chord" x1="23.83" y1="4.17" x2="16.32" y2="7.60" style="--i:42"/>
+    <line class="cdd-chord" x1="27.87" y1="3.30" x2="23.83" y2="4.17" style="--i:43"/>
+  </g>
+</svg>

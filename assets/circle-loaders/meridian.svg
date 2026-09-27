@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="mer" viewBox="0 0 64 64" width="96" height="96" fill="none" role="img" aria-label="Loading">
+  <style>
+    /* Two knobs: color is the ink, --rate multiplies every duration. */
+    svg { color: #f5f5f7; --rate: 1; }
+
+    .mer { --dur: 3.6s; --n: 6; }
+    .mer-limb  { stroke: currentColor; stroke-width: 1.1; opacity: .55; }
+    .mer-lat   { stroke: currentColor; stroke-width: 1; stroke-linecap: round; opacity: .22; }
+
+    .mer-line {
+      stroke: currentColor;
+      stroke-width: 1;
+      opacity: .5;
+      animation: mer-turn calc(var(--dur) * var(--rate, 1)) infinite;
+      animation-delay: calc(var(--i) * var(--dur) * var(--rate, 1) / var(--n) * -1);
+    }
+
+    .mer-glint {
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-dasharray: 14 86;
+      transform-box: view-box;
+      transform-origin: center;
+      opacity: .9;
+      animation: mer-glint calc(var(--dur) * var(--rate, 1) * 1.5) linear infinite;
+    }
+
+    /* rx follows |cos| - slow at the extremes, quickest through zero */
+    @keyframes mer-turn {
+      0%   { rx: 29px; animation-timing-function: ease-in; }
+      50%  { rx: 0px;    animation-timing-function: ease-out; }
+      100% { rx: 29px; }
+    }
+
+    @keyframes mer-glint {
+      0%   { transform: rotate(-30deg); opacity: 0; }
+      20%  { opacity: .85; }
+      70%  { opacity: .85; }
+      100% { transform: rotate(210deg); opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mer-line  { animation: none; rx: var(--rx); }
+      .mer-glint { animation: none; opacity: 0; }
+    }
+  </style>
+
+  <circle class="mer-limb" cx="32" cy="32" r="29"/>
+  <line class="mer-lat" x1="17.5" y1="6.89" x2="46.5" y2="6.89"/>
+  <line class="mer-lat" x1="6.89" y1="17.5" x2="57.11" y2="17.5"/>
+  <line class="mer-lat" x1="3" y1="32" x2="61" y2="32"/>
+  <line class="mer-lat" x1="6.89" y1="46.5" x2="57.11" y2="46.5"/>
+  <line class="mer-lat" x1="17.5" y1="57.11" x2="46.5" y2="57.11"/>
+  <ellipse class="mer-line" cx="32" cy="32" rx="29" ry="29" style="--i:0;--rx:29px"/>
+  <ellipse class="mer-line" cx="32" cy="32" rx="29" ry="29" style="--i:1;--rx:25.11px"/>
+  <ellipse class="mer-line" cx="32" cy="32" rx="29" ry="29" style="--i:2;--rx:14.5px"/>
+  <ellipse class="mer-line" cx="32" cy="32" rx="29" ry="29" style="--i:3;--rx:0px"/>
+  <ellipse class="mer-line" cx="32" cy="32" rx="29" ry="29" style="--i:4;--rx:14.5px"/>
+  <ellipse class="mer-line" cx="32" cy="32" rx="29" ry="29" style="--i:5;--rx:25.11px"/>
+  <circle class="mer-glint" cx="32" cy="32" r="29" pathLength="100"/>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="cor" viewBox="0 0 64 64" width="96" height="96" fill="none" role="img" aria-label="Loading">
+  <style>
+    /* Two knobs: color is the ink, --rate multiplies every duration. */
+    svg { color: #f5f5f7; --rate: 1; }
+
+    .cor { --dur: 2.2s; --n: 24; }
+
+    .cor-spoke {
+      transform-box: view-box;
+      transform-origin: center;
+      transform: rotate(var(--a));
+    }
+
+    /* one period spread around the ring = a single swell travelling the rim */
+    .cor-tip {
+      fill: currentColor;
+      transform-box: fill-box;
+      transform-origin: 50% 100%;
+      transform: scaleY(.26);
+      opacity: .24;
+      animation: cor-swell calc(var(--dur) * var(--rate, 1)) ease-in-out infinite;
+      animation-delay: calc(var(--i) * var(--dur) * var(--rate, 1) / var(--n) * -1);
+    }
+
+    .cor-hub { stroke: currentColor; stroke-width: 1; opacity: .22; }
+
+    @keyframes cor-swell {
+      0%, 100% { transform: scaleY(.26); opacity: .24; }
+      50%      { transform: scaleY(1);   opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cor-tip { animation: none; transform: scaleY(var(--rest)); opacity: calc(.22 + var(--rest) * .7); }
+    }
+  </style>
+
+  <g class="cor-spoke" style="--a:0.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:0;--rest:1.0000"/></g>
+    <g class="cor-spoke" style="--a:15.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:1;--rest:0.9881"/></g>
+    <g class="cor-spoke" style="--a:30.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:2;--rest:0.9531"/></g>
+    <g class="cor-spoke" style="--a:45.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:3;--rest:0.8975"/></g>
+    <g class="cor-spoke" style="--a:60.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:4;--rest:0.8250"/></g>
+    <g class="cor-spoke" style="--a:75.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:5;--rest:0.7406"/></g>
+    <g class="cor-spoke" style="--a:90.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:6;--rest:0.6500"/></g>
+    <g class="cor-spoke" style="--a:105.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:7;--rest:0.5594"/></g>
+    <g class="cor-spoke" style="--a:120.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:8;--rest:0.4750"/></g>
+    <g class="cor-spoke" style="--a:135.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:9;--rest:0.4025"/></g>
+    <g class="cor-spoke" style="--a:150.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:10;--rest:0.3469"/></g>
+    <g class="cor-spoke" style="--a:165.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:11;--rest:0.3119"/></g>
+    <g class="cor-spoke" style="--a:180.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:12;--rest:0.3000"/></g>
+    <g class="cor-spoke" style="--a:195.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:13;--rest:0.3119"/></g>
+    <g class="cor-spoke" style="--a:210.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:14;--rest:0.3469"/></g>
+    <g class="cor-spoke" style="--a:225.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:15;--rest:0.4025"/></g>
+    <g class="cor-spoke" style="--a:240.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:16;--rest:0.4750"/></g>
+    <g class="cor-spoke" style="--a:255.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:17;--rest:0.5594"/></g>
+    <g class="cor-spoke" style="--a:270.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:18;--rest:0.6500"/></g>
+    <g class="cor-spoke" style="--a:285.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:19;--rest:0.7406"/></g>
+    <g class="cor-spoke" style="--a:300.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:20;--rest:0.8250"/></g>
+    <g class="cor-spoke" style="--a:315.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:21;--rest:0.8975"/></g>
+    <g class="cor-spoke" style="--a:330.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:22;--rest:0.9531"/></g>
+    <g class="cor-spoke" style="--a:345.0deg"><rect class="cor-tip" x="31" y="2" width="2" height="19.1" rx="1" style="--i:23;--rest:0.9881"/></g>
+  <circle class="cor-hub" cx="32" cy="32" r="5.8"/>
+</svg>

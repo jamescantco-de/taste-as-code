@@ -1,0 +1,31 @@
+# 24 Circle Loaders — Agent Status & Micro-Spinners
+
+Extracted from [circleloaders.dominikakissi.com](https://circleloaders.dominikakissi.com).
+Standalone animated SVGs designed with hairlines clipped to a disc, reduced-motion aware, pure CSS/SVG.
+
+| # | Name | Description | Cycle | Build | File |
+|---|---|---|---|---|---|
+| 01 | **Latitude** | A sphere sliced along its parallels. Band heights follow sin θ, so they crowd toward the poles the way real latitudes do, and a light wave climbs the stack. | `2.4s` | 7 bands · SVG | [`latitude.svg`](./latitude.svg) |
+| 02 | **Scanline** | A ruled disc with packets sliding along the rules. Every packet snaps to the grid, so it reads as one line of the buffer being rewritten in place. | `1.6–2.9s` | 16 rules · SVG | [`scanline.svg`](./scanline.svg) |
+| 03 | **Waveform** | Beads riding a travelling sine through a barcode field. The bars shimmer on the same phase, so the wave carries through the whole disc, not just the dots. | `1.8s` | 15 bars · SVG | [`waveform.svg`](./waveform.svg) |
+| 04 | **Aperture** | The same striping, bent into rings. Three arc sets counter-rotate on coprime periods, so the silhouette takes almost a minute to repeat itself. | `2.1 / 2.8 / 3.9s` | 3 arcs · SVG | [`aperture.svg`](./aperture.svg) |
+| 05 | **Meridian** | A longitude circle seen side-on projects to an ellipse of width R·|cos φ| - so animating rx from R to nothing and back is, geometrically, the rotation. | `3.6s` | 6 meridians · SVG | [`meridian.svg`](./meridian.svg) |
+| 06 | **Halftone** | Sonar pushed through a dot matrix. The ring is an SVG mask with a growing radius, so it lights the dots it crosses instead of being drawn on top of them. | `2.8s` | dot matrix · SVG mask | [`halftone.svg`](./halftone.svg) |
+| 07 | **Corona** | A level meter bent into a circle. The spokes animate on a phase that advances one full period around the ring, so a single swell travels the rim. | `2.2s` | 24 spokes · SVG | [`corona.svg`](./corona.svg) |
+| 08 | **Moiré** | Two hairline gratings, one turning against the other. Nothing animates but the rotation - every band you see is interference between the rulings. | `11s` | 2 gratings · SVG | [`moire.svg`](./moire.svg) |
+| 09 | **Lissajous** | A 3:2 figure plotted at build time and traced by a comet. Three dashes of falling weight ride the path one behind the other - that is what makes the head read as a head. | `3.2s` | 260 points · SVG | [`lissajous.svg`](./lissajous.svg) |
+| 10 | **Orbit** | Beads on tilted elliptical tracks. Each bead counter-rotates and un-squashes itself against its plane, cancelling the distortion but keeping the position, so it stays round the whole way round. | `2.6 / 3.4 / 4.2s` | 3 planes · SVG | [`orbit.svg`](./orbit.svg) |
+| 11 | **Iris** | Six blades opening and closing. Each is an off-centre arc, so sliding one circle along its own axis is the whole mechanism - and the opening stays a true six-arc figure throughout. | `3s` | 6 blades · SVG | [`iris.svg`](./iris.svg) |
+| 12 | **Cascade** | Drops falling down a slit field. Each carries its weight at the leading edge, so it reads as a head pulling a trail rather than a block sliding past. | `1.6–3.1s` | 13 slits · SVG | [`cascade.svg`](./cascade.svg) |
+| 13 | **Radar** | A sweep over a polar grid. SVG has no conic gradient, so the tail is thirty-six graded wedges - and each blip is delayed by its own bearing over 360, flaring exactly as the leading edge crosses it. | `2.8s` | 36 wedges · SVG | [`radar.svg`](./radar.svg) |
+| 14 | **Gyroscope** | Three gimbals, each tilted and spinning on its own axis. A ring seen edge-on projects to width R·|cos t|, so animating rx from R to nothing and back is the spin itself. | `2.4 / 3.3 / 4.1s` | 3 gimbals · SVG | [`gyroscope.svg`](./gyroscope.svg) |
+| 15 | **Tide** | A level with a wave running across it. The path holds two identical periods, so sliding it exactly half its width loops with no seam. | `2.6s` | 2 waves · SVG | [`tide.svg`](./tide.svg) |
+| 16 | **Gooey** | Metaballs that fuse and part. A blur followed by a steep alpha ramp is what welds them: the falloff between two near neighbours crosses the threshold and snaps into one shape. | `2.2–4.4s` | 4 balls · SVG filter | [`gooey.svg`](./gooey.svg) |
+| 17 | **Rotor** | Type set on a circle. textLength forces the string to fill the circumference exactly, so the ring closes cleanly at any size instead of leaving a gap or overlapping its first letter. | `7s` | textPath · SVG | [`rotor.svg`](./rotor.svg) |
+| 18 | **Tunnel** | Rings running out at you. Radius and stroke weight grow together on an accelerating curve - a near ring is both larger and heavier, and that is what sells the depth. | `3s` | 6 hoops · SVG | [`tunnel.svg`](./tunnel.svg) |
+| 19 | **Cardioid** | String art from a times table. Chord i joins point i to point 2i; the envelope those straight lines leave behind is a cardioid that nothing ever draws. | `2.6s` | 44 chords · SVG | [`cardioid.svg`](./cardioid.svg) |
+| 20 | **Constellation** | A graph with a signal running through it. The layout is seeded, edges come from a distance threshold, and delays come from a breadth-first walk out of the most central node. | `2.4s` | 11 nodes · SVG | [`constellation.svg`](./constellation.svg) |
+| 21 | **Volute** | An Archimedean spiral that draws and erases itself. One dash the length of the whole path does both jobs - run its offset past zero and the tail eats what the head drew. | `3.4s` | 3¼ turns · SVG | [`volute.svg`](./volute.svg) |
+| 22 | **Escapement** | A pendulum, not a spinner. Two ghost arms run the same swing a beat behind the live one, which is what gives the turn at each extreme its weight. | `2s` | 3 arms · SVG | [`escapement.svg`](./escapement.svg) |
+| 23 | **Venetian** | Slats turning on their long axis. A slat projects to height H·|cos t|, so it genuinely narrows to an edge and vanishes at 90° rather than being faded out. | `2.6s` | 9 slats · SVG | [`venetian.svg`](./venetian.svg) |
+| 24 | **Helix** | Two strands a half-period apart with rungs between them. Each rung is drawn at its true separation, so the ladder narrows to nothing at every crossing and opens again. | `3.4s` | 60 rungs · SVG | [`helix.svg`](./helix.svg) |

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="wav" viewBox="0 0 64 64" width="96" height="96" fill="none" role="img" aria-label="Loading">
+  <style>
+    /* Two knobs: color is the ink, --rate multiplies every duration. */
+    svg { color: #f5f5f7; --rate: 1; }
+
+    .wav { --dur: 1.8s; }
+
+    /* the bars shimmer on the beads' phase, so the wave carries through the
+       whole disc rather than only in the dots */
+    .wav-bar {
+      stroke: currentColor;
+      stroke-width: .8;
+      opacity: .24;
+      animation: wav-shimmer calc(var(--dur) * var(--rate, 1)) ease-in-out infinite;
+      animation-delay: calc(var(--i) * var(--dur) * var(--rate, 1) / -9);
+    }
+
+    .wav-bead {
+      fill: currentColor;
+      animation: wav-bob calc(var(--dur) * var(--rate, 1)) ease-in-out infinite;
+      animation-delay: calc(var(--i) * var(--dur) * var(--rate, 1) / -7);
+    }
+
+    @keyframes wav-bob     { 0%, 100% { transform: translateY(-16px); } 50% { transform: translateY(16px); } }
+    @keyframes wav-shimmer { 0%, 100% { opacity: .2; } 50% { opacity: .62; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wav-bar  { animation: none; opacity: .3; }
+      .wav-bead { animation: none; transform: translateY(calc((var(--i) - 2) * 7px)); }
+    }
+  </style>
+
+  <defs><clipPath id="wav-disc"><circle cx="32" cy="32" r="32"/></clipPath></defs>
+  <g clip-path="url(#wav-disc)">
+    <line class="wav-bar" x1="4.00" y1="0" x2="4.00" y2="64" style="--i:0"/>
+    <line class="wav-bar" x1="8.00" y1="0" x2="8.00" y2="64" style="--i:1"/>
+    <line class="wav-bar" x1="12.00" y1="0" x2="12.00" y2="64" style="--i:2"/>
+    <line class="wav-bar" x1="16.00" y1="0" x2="16.00" y2="64" style="--i:3"/>
+    <line class="wav-bar" x1="20.00" y1="0" x2="20.00" y2="64" style="--i:4"/>
+    <line class="wav-bar" x1="24.00" y1="0" x2="24.00" y2="64" style="--i:5"/>
+    <line class="wav-bar" x1="28.00" y1="0" x2="28.00" y2="64" style="--i:6"/>
+    <line class="wav-bar" x1="32.00" y1="0" x2="32.00" y2="64" style="--i:7"/>
+    <line class="wav-bar" x1="36.00" y1="0" x2="36.00" y2="64" style="--i:8"/>
+    <line class="wav-bar" x1="40.00" y1="0" x2="40.00" y2="64" style="--i:9"/>
+    <line class="wav-bar" x1="44.00" y1="0" x2="44.00" y2="64" style="--i:10"/>
+    <line class="wav-bar" x1="48.00" y1="0" x2="48.00" y2="64" style="--i:11"/>
+    <line class="wav-bar" x1="52.00" y1="0" x2="52.00" y2="64" style="--i:12"/>
+    <line class="wav-bar" x1="56.00" y1="0" x2="56.00" y2="64" style="--i:13"/>
+    <line class="wav-bar" x1="60.00" y1="0" x2="60.00" y2="64" style="--i:14"/>
+    <circle class="wav-bead" cx="14.08" cy="32" r="2.5" style="--i:0"/>
+    <circle class="wav-bead" cx="23.04" cy="32" r="2.5" style="--i:1"/>
+    <circle class="wav-bead" cx="32.00" cy="32" r="2.5" style="--i:2"/>
+    <circle class="wav-bead" cx="40.96" cy="32" r="2.5" style="--i:3"/>
+    <circle class="wav-bead" cx="49.92" cy="32" r="2.5" style="--i:4"/>
+  </g>
+</svg>

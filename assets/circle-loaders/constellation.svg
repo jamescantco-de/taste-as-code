@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="con" viewBox="0 0 64 64" width="96" height="96" fill="none" role="img" aria-label="Loading">
+  <style>
+    /* Two knobs: color is the ink, --rate multiplies every duration. */
+    svg { color: #f5f5f7; --rate: 1; }
+
+    .con { --dur: 2.4s; --step: .2s; }
+
+    .con-bound { stroke: currentColor; stroke-width: 1; opacity: .1; }
+
+    /* delays come from hop count, so the pulse spreads through the graph
+       rather than sweeping across the picture */
+    .con-link {
+      stroke: currentColor;
+      stroke-width: .7;
+      opacity: .16;
+      animation: con-carry calc(var(--dur) * var(--rate, 1)) ease-out infinite;
+      animation-delay: calc(var(--h) * var(--step) * var(--rate, 1));
+    }
+
+    .con-node {
+      fill: currentColor;
+      opacity: .35;
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: con-fire calc(var(--dur) * var(--rate, 1)) ease-out infinite;
+      animation-delay: calc(var(--h) * var(--step) * var(--rate, 1));
+    }
+
+    .con-seed { opacity: .7; }
+
+    @keyframes con-carry { 0% { opacity: .9; } 30% { opacity: .22; } 100% { opacity: .16; } }
+    @keyframes con-fire  { 0% { opacity: 1; transform: scale(1.45); } 35% { opacity: .45; transform: scale(1); } 100% { opacity: .35; transform: scale(1); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .con-link { animation: none; opacity: .28; }
+      .con-node { animation: none; opacity: calc(.85 - var(--h) * .12); }
+    }
+  </style>
+
+  <circle class="con-bound" cx="32" cy="32" r="30"/>
+  <line class="con-link" x1="31.26" y1="56.57" x2="37.31" y2="44.56" style="--h:2"/>
+  <line class="con-link" x1="31.26" y1="56.57" x2="17.60" y2="47.27" style="--h:2"/>
+  <line class="con-link" x1="31.26" y1="56.57" x2="25.09" y2="38.70" style="--h:2"/>
+  <line class="con-link" x1="41.24" y1="28.64" x2="53.04" y2="19.01" style="--h:2"/>
+  <line class="con-link" x1="41.24" y1="28.64" x2="37.31" y2="44.56" style="--h:2"/>
+  <line class="con-link" x1="41.24" y1="28.64" x2="32.00" y2="22.43" style="--h:1"/>
+  <line class="con-link" x1="41.24" y1="28.64" x2="44.02" y2="12.95" style="--h:1"/>
+  <line class="con-link" x1="41.24" y1="28.64" x2="25.09" y2="38.70" style="--h:1"/>
+  <line class="con-link" x1="53.04" y1="19.01" x2="44.02" y2="12.95" style="--h:2"/>
+  <line class="con-link" x1="12.10" y1="38.52" x2="19.90" y2="22.96" style="--h:2"/>
+  <line class="con-link" x1="12.10" y1="38.52" x2="17.60" y2="47.27" style="--h:2"/>
+  <line class="con-link" x1="12.10" y1="38.52" x2="25.09" y2="38.70" style="--h:2"/>
+  <line class="con-link" x1="37.31" y1="44.56" x2="17.60" y2="47.27" style="--h:2"/>
+  <line class="con-link" x1="37.31" y1="44.56" x2="53.05" y2="46.45" style="--h:3"/>
+  <line class="con-link" x1="37.31" y1="44.56" x2="25.09" y2="38.70" style="--h:2"/>
+  <line class="con-link" x1="19.90" y1="22.96" x2="32.00" y2="22.43" style="--h:1"/>
+  <line class="con-link" x1="19.90" y1="22.96" x2="25.09" y2="38.70" style="--h:1"/>
+  <line class="con-link" x1="17.60" y1="47.27" x2="25.09" y2="38.70" style="--h:2"/>
+  <line class="con-link" x1="32.00" y1="22.43" x2="44.02" y2="12.95" style="--h:1"/>
+  <line class="con-link" x1="32.00" y1="22.43" x2="25.09" y2="38.70" style="--h:1"/>
+  <circle class="con-node" cx="31.26" cy="56.57" r="1.7" style="--h:2"/>
+  <circle class="con-node" cx="41.24" cy="28.64" r="1.7" style="--h:1"/>
+  <circle class="con-node" cx="53.04" cy="19.01" r="1.7" style="--h:2"/>
+  <circle class="con-node" cx="12.10" cy="38.52" r="1.7" style="--h:2"/>
+  <circle class="con-node" cx="37.31" cy="44.56" r="1.7" style="--h:2"/>
+  <circle class="con-node" cx="19.90" cy="22.96" r="1.7" style="--h:1"/>
+  <circle class="con-node" cx="17.60" cy="47.27" r="1.7" style="--h:2"/>
+  <circle class="con-node" cx="53.05" cy="46.45" r="1.7" style="--h:3"/>
+  <circle class="con-node con-seed" cx="32.00" cy="22.43" r="2.3" style="--h:0"/>
+  <circle class="con-node" cx="44.02" cy="12.95" r="1.7" style="--h:1"/>
+  <circle class="con-node" cx="25.09" cy="38.70" r="1.7" style="--h:1"/>
+</svg>
