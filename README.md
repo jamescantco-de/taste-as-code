@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.jpg" alt="Taste as Code by James Can't Code" width="100%">
+  <img src="assets/taste_as_code_banner.jpg" alt="Taste as Code by James Can't Code" width="100%">
 </p>
 
 # Taste as Code: The Open Design Library by James Can't Code (@JamesCantCode)
